@@ -52,7 +52,7 @@ def get_current_price(ticker):
 upbit = pyupbit.Upbit(access, secret)
 print("autotrade start")
 
-자동매매 시작
+# 자동매매 시작
 while True:
     try:
         now = datetime.datetime.now()
@@ -65,11 +65,11 @@ while True:
             s_pivot = get_s_pivot("KRW-ETH")
             current_price = get_current_price("KRW-ETH")
             avg_buy_price = upbit.get_avg_buy_price("ETH")
-            if s_pivot > pivot > current_price
+            if s_pivot > pivot > current_price:
                 krw = get_balance("KRW")
                 if krw > 5000: 
                     upbit.buy_market_order("KRW-ETH", krw*0.9995)
-            elif r_pivot < avg_buy_price < current_price
+            elif r_pivot < avg_buy_price < current_price:
                   eth = get_balance("ETH")
                     if eth > 0.002:
                         upbit.sell_market_order("KRW-ETH", eth*0.9995)
