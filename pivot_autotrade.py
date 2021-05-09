@@ -26,7 +26,7 @@ def get_s_pivot(ticker):
     '''1차 지지선'''
     df = pyupbit.get_ohlcv(ticker, interval="minute10", count=1)
     s_pivot = ((df.iloc[0]['close']+ df.iloc[0]['high'] + df.iloc[0]['low'])/3)*2 - df.iloc[0]['high']
-    return s_t_pivot
+    return s_pivot
 
 def get_r_pivot(ticker):
     '''1차 저항선'''
