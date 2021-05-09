@@ -14,13 +14,11 @@ def get_start_time(ticker):
     start_time = df.index[0]
     return start_time
 
-
 def get_pivot(ticker):
     '''피봇포인트'''
     df = pyupbit.get_ohlcv(ticker, interval="minute10", count=1)
     pivot = (df.iloc[0]['close']+ df.iloc[0]['high'] + df.iloc[0]['low'])/3
     return pivot
-
 
 def get_s_pivot(ticker):
     '''1차 지지선'''
@@ -33,6 +31,10 @@ def get_r_pivot(ticker):
     df = pyupbit.get_ohlcv(ticker, interval="minute10", count=1)
     support_pivot = ((df.iloc[0]['close']+ df.iloc[0]['high'] + df.iloc[0]['low'])/3)*2 - df.iloc[0]['low']
     return support_pivot
+
+def get_current_price(ticker):
+    """현재가 조회"""
+    return pyupbit.get_orderbook(tickers=ticker)[0]["orderbook_units"][0]["ask_price"]
 
 def get_balance(ticker):
     """잔고 조회"""
