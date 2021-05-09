@@ -71,7 +71,7 @@ while True:
                     upbit.buy_market_order("KRW-ETH", krw*0.9995)
             elif r_pivot < avg_buy_price < current_price:
                   eth = get_balance("ETH")
-                    if eth > 0.002:
+                  if eth > 0.002:
                         upbit.sell_market_order("KRW-ETH", eth*0.9995)
             
         else:
